@@ -7,4 +7,4 @@ Koodi jaettuna kansioihin joista kansiossa 'src' löytyy lähdekoodit 'App.js', 
 Ohjelman voi ajaa esimerkiksi komennolla:
 
 
-### 'npm start'
+### npm start
