@@ -48,6 +48,9 @@ class App extends Component {
 		}
 	}
 
+	    foo() {
+		return 1+1;
+	    }
 	//Päivittää mahdollisesti tallennetun paikan sivun auetessa
 	componentDidMount = async () => {
 		this.getData(undefined, undefined);

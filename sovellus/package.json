@@ -7,7 +7,8 @@
     "react": "^16.8.3",
     "react-cookie": "^3.0.8",
     "react-dom": "^16.8.3",
-    "react-scripts": "2.1.5"
+    "react-scripts": "2.1.5",
+    "react-test-render": "^1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -23,5 +24,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.10.0"
+  }
 }
