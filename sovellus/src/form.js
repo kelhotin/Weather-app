@@ -7,7 +7,7 @@ const Form = (props) => {
 		<form onSubmit={props.loadWeather}>
 			<input type="text" name="city" placeholder="Kaupunki" />
 			<input type="text" name="country" placeholder="Maa" />
-			<button>Hae sää</button>
+			<button name="nappi">Hae sää</button>
 			<input type="checkbox" id="tallenna" name="save" value="true" /> Tallenna
 		</form>
 	)
