@@ -77,7 +77,7 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-				
+
 				<Form loadWeather={this.setVariables} />
 				<Weather
 					temp={this.state.temp}
