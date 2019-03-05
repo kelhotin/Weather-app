@@ -9,7 +9,7 @@ Tämä käynnistää localhost-näkymän sovelluksesta [http://localhost:3000](h
 
 Testin voi ajaa komennolla.
 ### `npm test`
-testitiedosto sijaitsee kansiossa ./src/__tests__/
+testitiedosto sijaitsee kansiossa ./src/\_\_tests\_\_/
 
 
 Sovellus hakee datansa openweathermapista (http://openweathermap.org/api)
