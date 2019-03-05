@@ -1,6 +1,6 @@
 import React from 'react';
 
-//class Form extends Component {
+//Lomakkeen hallinta
 
 const Form = (props) => {
 	return (

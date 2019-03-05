@@ -1,3 +1,5 @@
+// Yksinkertainen sääsovellus joka hakee openweathermapista dataa ja näyttää sen käyttäjälle.
+//  Tyyliltään tarkoituksellisen simppeli. 
 import React, { Component } from 'react';
 import Weather from './WeatherElements.js';
 import Form from './form.js';
@@ -48,9 +50,6 @@ class App extends Component {
 		}
 	}
 
-	    foo() {
-		return 1+1;
-	    }
 	//Päivittää mahdollisesti tallennetun paikan sivun auetessa
 	componentDidMount = async () => {
 		this.getData(undefined, undefined);

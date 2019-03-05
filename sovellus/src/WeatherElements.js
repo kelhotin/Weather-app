@@ -1,5 +1,6 @@
 import React from 'react';
 
+//täällä kirjoitetaan itse data auki HTMLksi
 const Weather = (props) => {
 
 	return (
