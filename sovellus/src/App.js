@@ -77,9 +77,7 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-				{/* <button classname="save"
-				onClick={() =>this.saveDef}> Tallenna vakioksi </button> */}
-
+				
 				<Form loadWeather={this.setVariables} />
 				<Weather
 					temp={this.state.temp}
