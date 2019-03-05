@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Weather from './WeatherElements.js';
-import Titles from './titles.js';
 import Form from './form.js';
 import Cookies from 'universal-cookie';
 
@@ -30,13 +29,23 @@ class App extends Component {
 
 		const res = await apiCall.json();
 		console.log(res);
-		this.setState(
-			{
-				temp: res.main.temp,
-				city: res.name,
-				country: res.sys.country,
-			}
-		)
+		if (res.main) {
+			this.setState(
+				{
+					temp: res.main.temp,
+					city: res.name,
+					country: res.sys.country,
+					error: ""
+				}
+
+			)
+		} else {
+			this.setState(
+				{
+					error: "Tarkista kaupunki ja maa"
+				}
+			)
+		}
 	}
 
 	//Päivittää mahdollisesti tallennetun paikan sivun auetessa
@@ -54,13 +63,6 @@ class App extends Component {
 		const country = e.target.elements.country.value;
 		const toSave = e.target.elements.save.checked;
 		console.log(city);
-		// this.setState(
-		// 	{
-		// 		city: city,
-		// 		country: country
-		// 	}
-		// )
-		// console.log(this.state.city);
 		if (toSave) {
 			keksit.set('City', city);
 			keksit.set('Country', country);
@@ -69,10 +71,13 @@ class App extends Component {
 
 	}
 
+
 	render() {
 		return (
 			<div>
-				<Titles />
+				{/* <button classname="save"
+				onClick={() =>this.saveDef}> Tallenna vakioksi </button> */}
+
 				<Form loadWeather={this.setVariables} />
 				<Weather
 					temp={this.state.temp}
