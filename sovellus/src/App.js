@@ -1,5 +1,6 @@
 // Yksinkertainen sääsovellus joka hakee openweathermapista dataa ja näyttää sen käyttäjälle.
-//  Tyyliltään tarkoituksellisen simppeli. 
+//  Tyyliltään tarkoituksellisen simppeli.
+
 import React, { Component } from 'react';
 import Weather from './WeatherElements.js';
 import Form from './form.js';
@@ -14,6 +15,9 @@ class App extends Component {
 
 		this.state = {
 			temp: undefined,
+			wind: undefined,
+			windDeg: undefined,
+			windDir: "" 	,
 			city: undefined,
 			country: undefined,
 			error: undefined
@@ -35,12 +39,16 @@ class App extends Component {
 			this.setState(
 				{
 					temp: res.main.temp,
+					wind: res.wind.speed,
+					windDeg: res.wind.deg,
 					city: res.name,
 					country: res.sys.country,
 					error: ""
 				}
-
 			)
+			await this.windDirection(res.wind.deg);
+
+
 		} else {
 			this.setState(
 				{
@@ -48,6 +56,48 @@ class App extends Component {
 				}
 			)
 		}
+
+	}
+
+	windDirection = (dir) => {
+		var a = '';
+		console.log("---------------");
+		console.log(dir);
+		console.log("---------------");
+		if(330 >= dir || dir < 30) {
+			a = 'N'
+		}
+		else if(30 <= dir || 60 > dir) {
+			a = 'NE'
+		}
+		else if(60 <=dir || 120 > dir ) {
+			a = 'E'
+		}
+		else if(120 <=dir || 150 > dir ) {
+			a = 'SE'
+		}
+		else if(150 <=dir || 210 > dir ) {
+			a = 'S'
+		}
+		else if(210 <=dir || 240 > dir ) {
+			a = 'SW'
+		}
+		else if(240 <=dir || 300 > dir ) {
+			console.log("Lännestä");
+			a = 'W'
+		}
+		else if(300 <=dir || 330 > dir ) {
+			a = 'NW'
+		}
+		console.log(a);
+
+		this.setState(
+			{
+				windDir: a
+			}
+		)
+		console.log(this.windDir)
+
 	}
 
 	//Päivittää mahdollisesti tallennetun paikan sivun auetessa
@@ -70,16 +120,22 @@ class App extends Component {
 			keksit.set('Country', country);
 		}
 		this.getData(city, country);
+		console.log("morooooo");
 
 	}
 
 
+
 	render() {
+
 		return (
 			<div>
 
 				<Form loadWeather={this.setVariables} />
 				<Weather
+					wind={this.state.wind}
+					dir={this.state.windDir}
+					deg={this.state.windDeg}
 					temp={this.state.temp}
 					city={this.state.city}
 					country={this.state.country}
