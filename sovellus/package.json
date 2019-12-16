@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.19.0",
     "braces": "^2.3.2",
     "react": "^16.8.3",
     "react-cookie": "^3.0.8",
     "react-dom": "^16.8.3",
-    "react-scripts": "2.1.5",
-    "react-test-render": "^1.1.1"
+    "react-scripts": "^3.3.0",
+    "react-test-render": "^1.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
