@@ -9,7 +9,7 @@ const Weather = (props) => {
 			{props.country && props.city && <p>Kaupunki: {props.city},  {props.country}</p>}
 			{props.temp && <p>Lämpötila: {props.temp} &deg;C</p>}
 
-			{props.wind && <p>Tuuli: {props.wind} m/s, suunta: {props.dir} ({props.deg})</p>}
+			{props.wind && <p>Tuuli: {props.wind} m/s, suunta: {props.dir} ({props.deg})	</p>}
 
 			{props.error && <p>{props.error}</p>}
 
